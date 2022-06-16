@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.runtime.Composable
@@ -103,12 +100,12 @@ fun ChatScreen(
                                 }
                                 drawPath(
                                     path = trianglePath,
-                                    color = if (isOwnMessage) Color.Green else Color.DarkGray
+                                    color = if (isOwnMessage) Color.LightGray else Color.DarkGray
 
                                 )
                             }
                             .background(
-                                color = if (isOwnMessage) Color.Green else Color.DarkGray,
+                                color = if (isOwnMessage) Color.LightGray else Color.DarkGray,
                                 shape = RoundedCornerShape(10.dp)
                             )
                             .padding(8.dp)
@@ -141,7 +138,12 @@ fun ChatScreen(
                 placeholder = {
                     Text(text = "Enter a message")
                 },
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
+                colors = TextFieldDefaults.textFieldColors(
+                    cursorColor = Color.Black,
+                    focusedIndicatorColor = Color.Black,
+
+                )
             )
             IconButton(onClick = viewModel::sendMessage) {
                 Icon(
