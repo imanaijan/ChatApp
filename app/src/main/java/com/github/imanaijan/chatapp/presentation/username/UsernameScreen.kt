@@ -1,13 +1,12 @@
 package com.github.imanaijan.chatapp.presentation.username
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -38,12 +37,20 @@ fun UsernameScreen(
                 value = viewModel.usernameText.value,
                 onValueChange = viewModel::onUsernameChange,
                 placeholder = {
-                Text(text = "Enter a username")
+                    Text(text = "Enter a username")
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = TextFieldDefaults.textFieldColors(
+                    cursorColor = Color.Black,
+                    focusedIndicatorColor = Color.Black,
+
+                    )
             )
             Spacer(modifier = Modifier.height(8.dp))
-            Button(onClick = viewModel::onJoinClick) {
+            Button(
+                onClick = viewModel::onJoinClick,
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Gray)
+            ) {
                 Text(text = "Join")
             }
         }

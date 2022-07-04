@@ -100,12 +100,12 @@ fun ChatScreen(
                                 }
                                 drawPath(
                                     path = trianglePath,
-                                    color = if (isOwnMessage) Color.LightGray else Color.DarkGray
+                                    color = if (isOwnMessage) Color.Black else Color.DarkGray
 
                                 )
                             }
                             .background(
-                                color = if (isOwnMessage) Color.LightGray else Color.DarkGray,
+                                color = if (isOwnMessage) Color.Black else Color.DarkGray,
                                 shape = RoundedCornerShape(10.dp)
                             )
                             .padding(8.dp)
